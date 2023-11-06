@@ -329,9 +329,8 @@ int main(int argc, char *argv[])
 
 	usb_init(usb_num, base, usb_mode, usb_speed,  clk_select);
 	printf("usb init ok\n");
-	getchar();
+	sleep(1); //Add delay for init.
 	printf("put ENTER key enter to cp0 mode.......\n");
-	getchar();
 	if (usb_mode == 1) { //devices
 		if (usb_speed == 1) { //full
 			RMWREG32(base+0xc704, 1, 4, test_pattern);
