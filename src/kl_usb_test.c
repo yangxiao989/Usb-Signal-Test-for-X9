@@ -333,6 +333,9 @@ static int test_device(uint16_t vid, uint16_t pid, uint16_t portnum)
 		}
 	}
 
+	while (1) {
+		usleep(100);
+	}
 	printf("Closing device...\n");
 	libusb_close(handle);
 
@@ -408,7 +411,7 @@ int main(int argc, char** argv)
 
 	if ((show_help) || (argc == 1)) {
 		printf("usage: %s [help] [-hub=num vid:pid] [-host] [-device]\n", argv[0]);
-		printf("   help        : display usage\n");
+		printf("   -help       : display usage\n");
 		printf("   -host       : host_test_mode\n");
 		printf("   -device     : device_test_mode\n");
 		printf("	usb_num, usb_speed, test_mode, ncr_phy_regs are necessary under host and device test\n");
